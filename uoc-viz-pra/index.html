@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #000000;
+        color: aliceblue;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 70%;
+        z-index: 1000;
+    }
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul li {
+        float: left;
+    }
+    .navbar ul li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    .navbar ul li a:hover {
+        background-color: #111;
+    }
+    .section {
+        padding: 20px 10px;
+        margin-top: 10px;
+    }
+    #best10_usa_bar, #best10_usa_evo, #best10_usa_mid_salary_evo, #best10_usa_lang_age, #best10_usa_mid_salary_regre {
+        width: 100%;
+        height: 700px;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 260px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: -250%;
+      left: 50%;
+      margin-left: -80px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    strong, b {
+      color: #3374ff;
+    }
+    a {
+      color: #3374ff;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #93b3f8;
+    }
+  </style>
+</head>
+<body style="height: 100%; width: 70%; margin: auto">
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="#section0">Introducción</a></li>
+        <li><a href="#section1">Más utilizados</a></li>
+        <li><a href="#section2">Deseo vs Utilización</a></li>
+        <li><a href="#section3">Salarios medios</a></li>
+        <li><a href="#section4">Salarios  vs Utilización</a></li>
+        <li><a href="#section5">Edades</a></li>
+        <li><a href="#section6">Conclusiones</a></li>
+    </ul>
+</nav>
+
+<div id="section0" class="section">
+  <h1>Los lenguajes de programación más populares entre 2016 y 2023 en Estados Unidos</h1>
+  En el sector tecnológico, los profesionales se preguntan qué tecnologías aprender para maximizar sus oportunidades laborales y evitar estudiar tecnologías obsoletas. Es crucial analizar el uso y la comunidad de una tecnología para prever su longevidad, así como considerar parámetros como salarios y edades de los usuarios. Las encuestas anuales de Stack Overflow son un recurso valioso, pero carecen de evolución temporal. Este informe aborda el <strong>uso de lenguajes de programación en Estados Unidos</strong>, basándose en datos de las encuestas de <strong>Stack Overflow</strong> desde 2016 hasta 2023.
+</div>
+
+<div id="section1" class="section">
+    <h2>¿Cuáles son los lenguajes de programación más utilizados entre 2016 y 2023 en Estados Unidos?</h2>
+    El gráfico de barras muestra los diez lenguajes de programación más utilizados según las encuestas de <a href="#" class="tooltip">Stack Overflow <span class="tooltiptext" style="bottom: -350%;">La encuesta pregunta: ¿Qué lenguajes usas para trabajar?, permitiendo seleccionar varios.</span></a> de 2016 a 2023 (excluye HTML/CSS, SQL, Node JS, <a href="#" class="tooltip">etc<span class="tooltiptext" style="bottom: -250%;">Tecnologías no consideradas lenguajes de programación</span></a>). Al hacer <strong>clic en una barra</strong>, se expande la evolución anual de cada lenguaje.<br><br>
+    <div id="best10_usa_bar"></div>
+</div>
+
+<div id="section2" class="section">
+    <h2>¿Cuál es la relación entre deseo y utilización de los lenguajes de programación más usados en Estados Unidos?</h2>
+    La encuesta pregunta "¿qué lenguajes usas?" y "¿qué lenguajes deseas aprender?" mostrando la dinámica entre deseos y necesidades. El gráfico es un diagrama de dispersión que conecta los resultados anuales por lenguajes, indicando la evolución con flechas.<br><br>
+    <div id="best10_usa_evo"></div>
+</div>
+
+<div id="section3" class="section">
+  <h2>¿Cuál es la evolución de los salarios medios en Estados Unidos durante el período 2016 a 2023?</h2>
+  Este gráfico muestra la evolución de los salarios medios en el período 2016 a 2023, destacando las tendencias y cambios anuales en la remuneración del sector. Así como las diferencias entre los diferentes lenguajes de programación.<br><br>
+  <div id="best10_usa_mid_salary_evo"></div>
+</div>
+
+<div id="section4" class="section">
+  <h2>¿Cuál es la relación entre los salarios y los porcientos de utilización?</h2>
+  El gráfico de los salarios medios puede sugerir que los salarios medios tienen una relación inversa con el porciento de utilización de los lenguajes. Sin embargo, <strong>la correlación lineal entre estas variables es de -0.0162</strong>. El siguiente gráfico muestra un diagrama de dispersión de las variables <strong>salarios medios</strong> y <strong>porciento de utilización</strong> de los lenguajes de programación en Estados Unidos.<br><br>
+  <div id="best10_usa_mid_salary_regre"></div>
+</div>
+
+<div id="section5" class="section">
+  <h2>¿Cuál es la distribución de edades en cada uno de los lenguajes más populares en Estados Unidos?</h2>
+  Este boxplot muestra la distribución de edades entre los encuestados para cada uno de los diez lenguajes de programación más populares en Estados Unidos.<br><br>
+  <div id="best10_usa_lang_age"></div>
+</div>
+
+<div id="section6" class="section">
+  <h2>Conclusiones</h2>
+  <div style="height: 500px">
+    Los diez lenguajes de programación más utilizados en Estados Unidos según las encuestas de Stack Overflow de 2016 a 2023 son:<br><br>
+    <ol>
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>Java</li>
+      <li>C#</li>
+      <li>TypeScript</li>
+      <li>C++</li>
+      <li>C</li>
+      <li>PHP</li>
+      <li>Ruby</li>
+      <li>GO</li>
+    </ol>
+Aunque ha habido un claro predominio durante todo el período de JavaScript, se ha notado un gran aumento del deseo y utilización por parte de los programadores de su sucesor el TypeScript. Python es también otro lenguaje muy usado y deseado, manteniéndose en ambos casos por encima del 40% de los encuestados. Por el contrario, lenguajes como PHP, han reducido su aceptación y utilización dentro de la comunidad.<br><br>
+Los salarios medios tienen una clara tendencia alcista, pero no tienen una correlación lineal con los porcientos de utilización por los encuestados. En el diagrama de dispersión tampoco se nota alguna otra relación entre ambas variables.<br><br>
+La distribución de las edades en cada lenguaje es <a href="#" class="tooltip">muy similar<span class="tooltiptext" style="bottom: -550%;">Se debe recordar que cada encuestado puede utilizar varios lenguajes por lo que muchos lenguajes tendrán los mismos encuestados.</span></a>. Las edades en el cuartil superior son de 40 años aproximadamente y las edades de iniciación son de entre 11 y 13 años.
+  </div>
+</div>
+
+<div id="section7" class="section">
+  <div style="height: 500px">
+    Autor:<br><br>
+    <a href="https://www.linkedin.com/in/david-alvarez-ca%C3%B1izares-3a7b0090/" target="_blank">David Alvarez Cañizares</a><br><br>
+    Fuente de datos: <br><br>
+    <a href="https://survey.stackoverflow.co/" target="_blank">Overflow Anual Developer Survey</a><br><br>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var dom = document.getElementById('best10_usa_bar');
+  var myChart_1 = echarts.init(dom, 'dark', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+const data_best10_usa_all = [
+['JavaScript', 63.21, 'lang', 'js'],
+['Python'    , 44.70, 'lang', 'py'],
+['Java'      , 31.90, 'lang', 'java'],
+['C#'        , 30.30, 'lang', 'cnet'],
+['TypeScript', 22.71, 'lang', 'ts'],
+['C++'       , 20.65, 'lang', 'cpp'],
+['C'         , 16.94, 'lang', 'c'],
+['PHP'       , 16.24, 'lang', 'php'],
+['Ruby'      , 10.89, 'lang', 'ruby'],
+['Go'        , 10.47, 'lang', 'go']
+];
+const data_best10_usa_js = [
+['2016 - JavaScript', 52.33, 'js'],
+['2017 - JavaScript', 49.75, 'js'],
+['2018 - JavaScript', 64.63, 'js'],
+['2019 - JavaScript', 70.04, 'js'],
+['2020 - JavaScript', 65.41, 'js'],
+['2021 - JavaScript', 65.33, 'js'],
+['2022 - JavaScript', 66.59, 'js'],
+['2023 - JavaScript', 64.53, 'js']
+];
+
+const data_best10_usa_python = [
+['2016 - Python', 26.83, 'py'],
+['2017 - Python', 29.23, 'py'],
+['2018 - Python', 40.99, 'py'],
+['2019 - Python', 48.13, 'py'],
+['2020 - Python', 47.83, 'py'],
+['2021 - Python', 52.17, 'py'],
+['2022 - Python', 51.81, 'py'],
+['2023 - Python', 53.96, 'py']
+];
+
+const data_best10_usa_java = [
+['2016 - Java', 31.59, 'java'],
+['2017 - Java', 27.86, 'java'],
+['2018 - Java', 35.23, 'java'],
+['2019 - Java', 36.32, 'java'],
+['2020 - Java', 33.10, 'java'],
+['2021 - Java', 30.66, 'java'],
+['2022 - Java', 30.07, 'java'],
+['2023 - Java', 27.58, 'java']
+];
+
+const data_best10_usa_cnet = [
+['2016 - C#', 30.48, 'cnet'],
+['2017 - C#', 27.06, 'cnet'],
+['2018 - C#', 31.43, 'cnet'],
+['2019 - C#', 32.37, 'cnet'],
+['2020 - C#', 31.13, 'cnet'],
+['2021 - C#', 29.42, 'cnet'],
+['2022 - C#', 30.01, 'cnet'],
+['2023 - C#', 29.01, 'cnet']
+];
+
+const data_best10_usa_ts = [
+['2016 - TypeScript',  0.00, 'ts'],
+['2017 - TypeScript',  7.26, 'ts'],
+['2018 - TypeScript', 16.10, 'ts'],
+['2019 - TypeScript', 21.81, 'ts'],
+['2020 - TypeScript', 24.72, 'ts'],
+['2021 - TypeScript', 30.75, 'ts'],
+['2022 - TypeScript', 35.58, 'ts'],
+['2023 - TypeScript', 39.65, 'ts']
+];
+
+const data_best10_usa_cpp = [
+['2016 - C++', 17.51, 'cpp'],
+['2017 - C++', 16.04, 'cpp'],
+['2018 - C++', 19.98, 'cpp'],
+['2019 - C++', 21.74, 'cpp'],
+['2020 - C++', 20.68, 'cpp'],
+['2021 - C++', 22.52, 'cpp'],
+['2022 - C++', 22.15, 'cpp'],
+['2023 - C++', 22.64, 'cpp']
+];
+
+const data_best10_usa_c = [
+['2016 - C', 13.58, 'c'],
+['2017 - C', 13.39, 'c'],
+['2018 - C', 16.78, 'c'],
+['2019 - C', 17.59, 'c'],
+['2020 - C', 17.56, 'c'],
+['2021 - C', 18.77, 'c'],
+['2022 - C', 17.68, 'c'],
+['2023 - C', 18.54, 'c']
+];
+
+const data_best10_usa_php = [
+['2016 - PHP', 17.36, 'php'],
+['2017 - PHP', 15.95, 'php'],
+['2018 - PHP', 19.54, 'php'],
+['2019 - PHP', 18.95, 'php'],
+['2020 - PHP', 16.11, 'php'],
+['2021 - PHP', 14.08, 'php'],
+['2022 - PHP', 14.18, 'php'],
+['2023 - PHP', 12.32, 'php']
+];
+
+const data_best10_usa_ruby = [
+['2016 - Ruby', 10.86, 'ruby'],
+['2017 - Ruby',  9.80, 'ruby'],
+['2018 - Ruby', 13.26, 'ruby'],
+['2019 - Ruby', 12.49, 'ruby'],
+['2020 - Ruby',  9.92, 'ruby'],
+['2021 - Ruby', 10.77, 'ruby'],
+['2022 - Ruby',  9.35, 'ruby'],
+['2023 - Ruby',  9.04, 'ruby']
+];
+
+const data_best10_usa_go = [
+['2016 - Go',  3.69, 'go'],
+['2017 - Go',  4.13, 'go'],
+['2018 - Go',  9.00, 'go'],
+['2019 - Go', 11.18, 'go'],
+['2020 - Go', 11.00, 'go'],
+['2021 - Go', 12.41, 'go'],
+['2022 - Go', 14.15, 'go'],
+['2023 - Go', 15.47, 'go']
+];
+
+const best10_usa_allLevelData = [
+data_best10_usa_all,
+data_best10_usa_js,
+data_best10_usa_python,
+data_best10_usa_java,
+data_best10_usa_cnet,
+data_best10_usa_ts,
+data_best10_usa_cpp,
+data_best10_usa_c,
+data_best10_usa_php,
+data_best10_usa_ruby,
+data_best10_usa_go
+];
+
+const best10_usa_allOptions = {};
+best10_usa_allLevelData.forEach((data, index) => {
+const optionId = data[0][2];
+const option = {
+  id: optionId,
+  xAxis: {
+    type: 'category',
+    name: 'Lenguajes'
+  },
+  yAxis: {
+    minInterval: 1,
+    name: 'Porciento de utilización'
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  animationDurationUpdate: 500,
+  series: {
+    type: 'bar',
+    showBackground: true,
+    backgroundStyle: {
+      color: 'rgba(180, 180, 180, 0.2)'
+    },
+    dimensions: ['x', 'y', 'groupId', 'childGroupId'],
+    encode: {
+      x: 'x',
+      y: 'y',
+      itemGroupId: 'groupId',
+      itemChildGroupId: 'childGroupId'
+    },
+    data,
+    universalTransition: {
+      enabled: true,
+      divideShape: 'clone'
+    }
+  },
+  graphic: [
+    {
+      type: 'text',
+      id: 'backButton',
+      left: 50,
+      top: 10,
+      style: {
+        text: 'Atrás',
+        fontSize: 18,
+        fill: 'grey'
+      },
+      onclick: function () {
+        best10_usa_goBack();
+      },
+      invisible: true
+    }
+  ]
+};
+
+best10_usa_allOptions[optionId] = option;
+
+});
+const best10_usa_optionStack = [];
+const best10_usa_goForward = (best10_usa_optionId) => {
+  best10_usa_optionStack.push(myChart_1.getOption().id);
+myChart_1.setOption(best10_usa_allOptions[best10_usa_optionId]);
+myChart_1.setOption({
+  graphic: {
+    id: 'backButton',
+    invisible: false
+  }
+});
+
+};
+const best10_usa_goBack = () => {
+if (best10_usa_optionStack.length === 0) {
+  console.log('Already in root level!');
+} else {
+  console.log('Go back to previous level.');
+  myChart_1.setOption(best10_usa_allOptions[best10_usa_optionStack.pop()]);
+  if (best10_usa_optionStack.length === 0) {
+    myChart_1.setOption({
+      graphic: {
+        id: 'backButton',
+        invisible: true
+      }
+    });
+  }
+}
+};
+best10_usa_option = best10_usa_allOptions['lang'];
+myChart_1.on('click', 'series', (params) => {
+const best10_usa_dataItem = params.data;
+if (best10_usa_dataItem[3]) {
+  const best10_usa_childGroupId = best10_usa_dataItem[3];
+  const best10_usa_nextOptionId = best10_usa_childGroupId;
+  best10_usa_goForward(best10_usa_nextOptionId);
+}
+});
+
+  if (best10_usa_option && typeof best10_usa_option === 'object') {
+    myChart_1.setOption(best10_usa_option);
+  }
+
+  window.addEventListener('resize', myChart_1.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('best10_usa_evo');
+  var myChart_2 = echarts.init(dom, 'dark', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+const js_top10_usa_data = [
+[ 52.33, 34.32, 1, 2016],
+[ 49.75, 35.22, 2, 2017],
+[ 64.63, 42.53, 3, 2018],
+[ 70.04, 50.39, 4, 2019],
+[ 65.41, 41.93, 5, 2020],
+[ 65.33, 42.17, 6, 2021],
+[ 66.59, 41.46, 7, 2022],
+[ 64.53, 37.31, 8, 2023]
+];
+
+const python_top10_usa_data = [
+[ 26.83, 27.90, 1, 2016],
+[ 29.23, 29.21, 2, 2017],
+[ 40.99, 38.03, 3, 2018],
+[ 48.13, 47.00, 4, 2019],
+[ 47.83, 44.01, 5, 2020],
+[ 52.17, 42.62, 6, 2021],
+[ 51.81, 41.76, 7, 2022],
+[ 53.96, 41.31, 8, 2023]
+];
+
+const java_top10_usa_data = [
+[ 31.59, 20.02, 1, 2016],
+[ 27.86, 18.28, 2, 2017],
+[ 35.23, 19.65, 3, 2018],
+[ 36.32, 21.59, 4, 2019],
+[ 33.10, 17.31, 5, 2020],
+[ 30.66, 16.58, 6, 2021],
+[ 30.07, 15.68, 7, 2022],
+[ 27.58, 13.19, 8, 2023]
+];
+
+const cnet_top10_usa_data = [
+[ 30.48, 24.04, 1, 2016],
+[ 27.06, 22.78, 2, 2017],
+[ 31.43, 23.88, 3, 2018],
+[ 32.37, 27.04, 4, 2019],
+[ 31.13, 24.63, 5, 2020],
+[ 29.42, 23.92, 6, 2021],
+[ 30.01, 23.90, 7, 2022],
+[ 29.01, 22.27, 8, 2023]
+];
+
+const ts_top10_usa_data = [
+[  0.00,  0.00, 1, 2016],
+[  7.26, 11.92, 2, 2017],
+[ 16.10, 19.28, 3, 2018],
+[ 21.81, 27.13, 4, 2019],
+[ 24.72, 28.40, 5, 2020],
+[ 30.75, 31.99, 6, 2021],
+[ 35.58, 35.18, 7, 2022],
+[ 39.65, 35.73, 8, 2023]
+];
+
+const cpp_top10_usa_data = [
+[ 17.51, 16.96, 1, 2016],
+[ 16.04, 16.01, 2, 2017],
+[ 19.98, 17.03, 3, 2018],
+[ 21.74, 19.31, 4, 2019],
+[ 20.68, 15.87, 5, 2020],
+[ 22.52, 18.23, 6, 2021],
+[ 22.15, 17.06, 7, 2022],
+[ 22.64, 16.74, 8, 2023]
+];
+
+const c_top10_usa_data = [
+[ 13.58, 11.29, 1, 2016],
+[ 13.39, 10.83, 2, 2017],
+[ 16.78, 12.04, 3, 2018],
+[ 17.59, 12.98, 4, 2019],
+[ 17.56, 10.69, 5, 2020],
+[ 18.77, 13.21, 6, 2021],
+[ 17.68, 12.07, 7, 2022],
+[ 18.54, 12.45, 8, 2023]
+];
+
+const php_top10_usa_data = [
+[ 17.36, 8.41, 1, 2016],
+[ 15.95, 7.85, 2, 2017],
+[ 19.54, 8.74, 3, 2018],
+[ 18.95, 9.64, 4, 2019],
+[ 16.11, 7.22, 5, 2020],
+[ 14.08, 6.63, 6, 2021],
+[ 14.18, 6.71, 7, 2022],
+[ 12.32, 5.86, 8, 2023]
+];
+
+const ruby_top10_usa_data = [
+[ 10.86, 12.16, 1, 2016],
+[  9.80,  9.55, 2, 2017],
+[ 13.26, 10.15, 3, 2018],
+[ 12.49, 10.16, 4, 2019],
+[  9.92,  7.95, 5, 2020],
+[ 10.77,  8.21, 6, 2021],
+[  9.35,  7.10, 7, 2022],
+[  9.04,  6.33, 8, 2023]
+];
+
+const go_top10_usa_data = [
+[  3.69, 12.09, 1, 2016],
+[  4.13, 13.84, 2, 2017],
+[  9.00, 20.89, 3, 2018],
+[ 11.18, 21.82, 4, 2019],
+[ 11.00, 21.96, 5, 2020],
+[ 12.41, 19.71, 6, 2021],
+[ 14.15, 21.96, 7, 2022],
+[ 15.47, 20.70, 8, 2023]
+];
+
+function generateSeries_dots(data, name) {
+  series = {
+    symbolSize: symbol_scaler,
+    name: name,
+    data: data,
+    type: 'scatter',
+    emphasis: {
+      label: {
+        show: true,
+        position: 'top',
+        formatter: '{a} - Año {@[3]}',
+        color: '#fff',
+        focus: 'series'
+      }
+    },
+    tooltip: {
+      trigger: 'item'
+    }
+  };
+  return series;
+}
+  function generateSeries_arrows(data, name)
+  {
+    const series = {
+      symbolSize: 0,
+      type: 'graph',
+      layout: 'none',
+      name: name,
+      coordinateSystem: 'cartesian2d',
+      edgeSymbol: ['arrow'],
+      edgeSymbolSize: [10],
+      data: data,
+      links: links
+    };
+  return series;
+};
+
+function symbol_scaler(value) {
+  return 10;
+}
+
+const links = [
+  { source: 7, target: 6 },
+  { source: 6, target: 5 },
+  { source: 5, target: 4 },
+  { source: 4, target: 3 },
+  { source: 3, target: 2 },
+  { source: 2, target: 1 },
+  { source: 1, target: 0 }
+];
+
+const colors = [
+    "#FF4500", 
+    "#006e00", 
+    "#1E90FF", 
+    "#00fff2", 
+    "#9370DB", 
+    "#fffb00", 
+    "#7FFF00", 
+    "#eb0533", 
+    "#A9A9A9", 
+    "#FF69B4"  
+];
+option = {
+  color: colors,
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+xAxis: {
+  name: 'Porciento de utilización',
+  axisPointer: {
+    show: true,
+    label: {
+      show: true,
+      formatter: '{value}',
+      backgroundColor: '#333',
+      color: '#fff'
+    }
+  }
+},
+yAxis: {
+  name: 'Porciento que quieren usarlo',
+  axisPointer: {
+    show: true,
+    label: {
+      show: true,
+      formatter: '{value}',
+      backgroundColor: '#333',
+      color: '#fff'
+    }
+  }
+},
+grid: {
+  left: '5%',
+  right: '12%',
+  bottom: '3%',
+  containLabel: true
+},
+legend: {
+  data: ['JavaScript', 'Python','Java','C#', 'TypeScript', 'C++', 'C', 'PHP', 'Ruby', 'GO']
+},
+series: [
+  
+  generateSeries_dots(js_top10_usa_data, 'JavaScript'),
+  generateSeries_arrows(js_top10_usa_data, 'JavaScript'),
+  
+  generateSeries_dots(python_top10_usa_data, 'Python'),
+  generateSeries_arrows(python_top10_usa_data, 'Python'),
+  
+  generateSeries_dots(java_top10_usa_data, 'Java'),
+  generateSeries_arrows(java_top10_usa_data, 'Java'),
+  
+  generateSeries_dots(cnet_top10_usa_data, 'C#'),
+  generateSeries_arrows(cnet_top10_usa_data, 'C#'),
+  
+  generateSeries_dots(ts_top10_usa_data, 'TypeScript'),
+  generateSeries_arrows(ts_top10_usa_data, 'TypeScript'),
+  
+  generateSeries_dots(cpp_top10_usa_data, 'C++'),
+  generateSeries_arrows(cpp_top10_usa_data, 'C++'),
+  
+  generateSeries_dots(c_top10_usa_data, 'C'),
+  generateSeries_arrows(c_top10_usa_data, 'C'),
+  
+  generateSeries_dots(php_top10_usa_data, 'PHP'),
+  generateSeries_arrows(php_top10_usa_data, 'PHP'),
+  
+  generateSeries_dots(ruby_top10_usa_data, 'Ruby'),
+  generateSeries_arrows(ruby_top10_usa_data, 'Ruby'),
+  
+  generateSeries_dots(go_top10_usa_data, 'GO'),
+  generateSeries_arrows(go_top10_usa_data, 'GO')
+]
+};
+
+  if (option && typeof option === 'object') {
+    myChart_2.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart_2.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('best10_usa_mid_salary_evo');
+  var myChart_3 = echarts.init(dom, 'dark', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+
+  option = {
+    color: colors,
+tooltip: {
+  trigger: 'axis'
+},
+legend: {
+  data: ['JavaScript', 'Python', 'Java', 'C#', 'TypeScript', 'C++', 'C', 'PHP', 'Ruby', 'Go']
+},
+grid: {
+  left: '3%',
+  right: '4%',
+  bottom: '3%',
+  containLabel: true
+},
+toolbox: {
+  feature: {
+    saveAsImage: {}
+  }
+},
+xAxis: {
+  type: 'category',
+  boundaryGap: false,
+  name: 'Años',
+  data: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
+},
+yAxis: {
+  type: 'value',
+  name: 'Salarios medios'
+},
+series: [
+  {
+    name: 'JavaScript',
+    type: 'line',
+    data: [89908.256881 ,94271.741179 ,96419.172752 ,127835.434318,116462.324390,137153.972285,149395.561438,164502.017342]
+  },
+  {
+    name: 'Python',
+    type: 'line',
+    data: [91252.067483 ,99496.675136 ,96558.377391 ,137923.116518,125147.458403,149226.784192,164536.122423,187520.156412]
+  },
+  {
+    name: 'Java',
+    type: 'line',
+    data: [91667.139212 ,97781.670828 ,97751.026872 ,126536.360226,127782.000000,162166.143731,175104.508219,180689.709449]
+  },
+  {
+    name: 'C#',
+    type: 'line',
+    data: [94070.441989 ,94491.855259 ,95496.488592 ,107904.657504,112363.610586,138542.225939,147754.849100,167080.374290]
+  },
+  {
+    name: 'TypeScript',
+    type: 'line',
+    data: [null         ,98844.539940 ,101359.635558,116421.836317,121640.707589,153192.413909,157896.834851,180620.486861]
+  },
+  {
+    name: 'C++',
+    type: 'line',
+    data: [91505.863539 ,103118.901363,96739.797195 ,131865.657519,135728.848129,171308.291768,176000.206006,198172.561204]
+  },
+  {
+    name: 'C',
+    type: 'line',
+    data: [89223.300971 ,101089.131991,97411.054474 ,122016.153327,136939.972371,190025.932075,166044.034547,189003.786458]
+  },
+  {
+    name: 'PHP',
+    type: 'line',
+    data: [77586.469990 ,84422.970904 ,87975.255558 ,155466.659821,104729.431235,146422.873563,129320.008811,179875.840875]
+  },
+  {
+    name: 'Ruby',
+    type: 'line',
+    data: [95581.761006 ,98204.553236 ,104449.659332,131454.496042,132425.034940,154045.972556,175340.441341,230395.383392]
+  },
+  {
+    name: 'Go',
+    type: 'line',
+    data: [109352.941176,107870.531401,115656.016069,139707.179814,149782.527215,209121.888095,187026.502871,231430.019968]
+  }
+]
+};
+
+  if (option && typeof option === 'object') {
+    myChart_3.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart_3.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('best10_usa_lang_age');
+  var myChart_4 = echarts.init(dom, 'dark', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+
+  var data = [{language: 'JavaScript', values: [11.0, 27.0, 29.5, 39.5, 79.0]},
+              {language: 'Python', values: [11.0, 23.0, 29.5, 39.5, 79.0]},
+              {language: 'Java', values: [11.0, 22.0, 29.5, 39.5, 79.0]},
+              {language: 'C#', values: [11.0, 28.0, 30.0, 39.5, 78.0]},
+              {language: 'TypeScript', values: [12.0, 29.5, 29.5, 39.5, 78.0]},
+              {language: 'C++', values: [12.0, 21.0, 29.5, 39.5, 79.0]},
+              {language: 'C', values: [12.0, 21.0, 29.5, 39.5, 79.0]},
+              {language: 'PHP', values: [12.0, 27.0, 29.5, 39.5, 79.0]},
+              {language: 'Ruby', values: [11.0, 29.5, 29.5, 39.5, 78.0]},
+              {language: 'Go', values: [13.0, 28.0, 29.5, 39.5, 72.0]}];
+
+      var option = {
+          tooltip: {
+          },
+          toolbox: {
+            feature: {
+              saveAsImage: {}
+            }
+          },
+          grid: {
+              left: '3%',
+              right: '6%',
+              bottom: '3%',
+              containLabel: true
+          },
+          xAxis: {
+              type: 'category',
+              data: data.map(item => item.language),
+              boundaryGap: true,
+              name: 'Lenguaje'
+          },
+          yAxis: {
+              type: 'value',
+              name: 'Edad'
+          },
+          series: [
+              {
+                  name: 'Boxplot',
+                  type: 'boxplot',
+                  data: data.map(item => ({
+                      name: item.language,
+                      value: item.values
+                  })),
+                  tooltip: {
+                      formatter: function (params) {
+                          return [
+                              'Lenguaje: ' + params.name,
+                              'Mínimo: ' + params.value[1],
+                              'Q1: ' + params.value[2],
+                              'Mediana: ' + params.value[3],
+                              'Q3: ' + params.value[4],
+                              'Máximo: ' + params.value[5]
+                          ].join('<br/>');
+                      }
+                  }
+              }
+          ]
+      };
+
+  if (option && typeof option === 'object') {
+    myChart_4.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart_4.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('best10_usa_mid_salary_regre');
+  var myChart_5 = echarts.init(dom, 'dark', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+
+echarts.registerTransform(ecStat.transform.histogram);
+echarts.registerTransform(ecStat.transform.regression);
+
+var option = {
+  dataset: [{
+      source: [
+                [52.33, 89908.256881 ],
+                [49.75, 94271.741179 ],
+                [64.63, 96419.172752 ],
+                [70.04, 127835.434318],
+                [65.41, 116462.324390],
+                [65.33, 137153.972285],
+                [66.59, 149395.561438],
+                [64.53, 164502.017342],
+                [26.83, 91252.067483 ],
+                [29.23, 99496.675136 ],
+                [40.99, 96558.377391 ],
+                [48.13, 137923.116518],
+                [47.83, 125147.458403],
+                [52.17, 149226.784192],
+                [51.81, 164536.122423],
+                [53.96, 187520.156412],
+                [31.59, 91667.139212 ],
+                [27.86, 97781.670828 ],
+                [35.23, 97751.026872 ],
+                [36.32, 126536.360226],
+                [33.10, 127782.000000],
+                [30.66, 162166.143731],
+                [30.07, 175104.508219],
+                [27.58, 180689.709449],
+                [30.48, 94070.441989 ],
+                [27.06, 94491.855259 ],
+                [31.43, 95496.488592 ],
+                [32.37, 107904.657504],
+                [31.13, 112363.610586],
+                [29.42, 138542.225939],
+                [30.01, 147754.849100],
+                [29.01, 167080.374290],
+                [ 7.26, 98844.539940 ],
+                [16.10, 101359.635558],
+                [21.81, 116421.836317],
+                [24.72, 121640.707589],
+                [30.75, 153192.413909],
+                [35.58, 157896.834851],
+                [39.65, 180620.486861],
+                [17.51, 91505.863539 ],
+                [16.04, 103118.901363],
+                [19.98, 96739.797195 ],
+                [21.74, 131865.657519],
+                [20.68, 135728.848129],
+                [22.52, 171308.291768],
+                [22.15, 176000.206006],
+                [22.64, 198172.561204],
+                [13.58, 89223.300971 ],
+                [13.39, 101089.131991],
+                [16.78, 97411.054474 ],
+                [17.59, 122016.153327],
+                [17.56, 136939.972371],
+                [18.77, 190025.932075],
+                [17.68, 166044.034547],
+                [18.54, 189003.786458],
+                [17.36, 77586.469990 ],
+                [15.95, 84422.970904 ],
+                [19.54, 87975.255558 ],
+                [18.95, 155466.659821],
+                [16.11, 104729.431235],
+                [14.08, 146422.873563],
+                [14.18, 129320.008811],
+                [12.32, 179875.840875],
+                [10.86, 95581.761006 ],
+                [ 9.80, 98204.553236 ],
+                [13.26, 104449.659332],
+                [12.49, 131454.496042],
+                [ 9.92, 132425.034940],
+                [10.77, 154045.972556],
+                [ 9.35, 175340.441341],
+                [ 9.04, 230395.383392],
+                [ 3.69, 109352.941176],
+                [ 4.13, 107870.531401],
+                [ 9.00, 115656.016069],
+                [11.18, 139707.179814],
+                [11.00, 149782.527215],
+                [12.41, 209121.888095],
+                [14.15, 187026.502871],
+                [15.47, 231430.019968]
+                ]
+  }, {
+      transform: {
+          type: 'ecStat:histogram'
+      }
+  }, {
+      transform: {
+          type: 'ecStat:histogram',
+          print: true,
+          config: { dimensions: [1] }
+      }
+  },
+  {
+    transform: {
+      type: 'ecStat:regression',
+      config: {
+        method: 'linear'
+      }
+    }
+  }
+  ],
+  tooltip: {
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  grid: [{
+      top: '35%',
+      right: '30%'
+  }, {
+      bottom: '70%',
+      right: '30%',
+  }, {
+      top: '35%',
+      left: '75%'
+  }],
+  xAxis: [{
+      scale: true,
+      gridIndex: 0,
+      name: 'Porciento de utilización'
+  }, {
+      type: 'category',
+      scale: true,
+      axisTick: { show: false },
+      axisLabel: { show: false },
+      axisLine: { show: false },
+      gridIndex: 1
+  }, {
+      scale: true,
+      gridIndex: 2
+  }],
+  yAxis: [{
+      gridIndex: 0,
+      min: 60000,
+      name: 'Salarios medios'
+  }, {
+      gridIndex: 1
+  }, {
+      type: 'category',
+      axisTick: { show: false },
+      axisLabel: { show: false },
+      axisLine: { show: false },
+      gridIndex: 2
+  }],
+  series: [{
+      name: 'Porciento de utilización vs Salarios medios',
+      type: 'scatter',
+      xAxisIndex: 0,
+      yAxisIndex: 0,
+      encode: { tooltip: [0, 1] },
+      datasetIndex: 0
+  }, {
+      name: 'Histograma',
+      type: 'bar',
+      xAxisIndex: 1,
+      yAxisIndex: 1,
+      barWidth: '80.0%',
+      label: {
+          show: true,
+          position: 'top'
+      },
+      encode: { x: 0, y: 1, itemName: 4 },
+      datasetIndex: 1
+  }, {
+      name: 'Histograma',
+      type: 'bar',
+      xAxisIndex: 2,
+      yAxisIndex: 2,
+      barWidth: '80.0%',
+      label: {
+          show: true,
+          position: 'right'
+      },
+      encode: { x: 1, y: 0, itemName: 4 },
+      datasetIndex: 2
+  },
+  {
+    name: 'Línea',
+    type: 'line',
+    smooth: true,
+    datasetIndex: 3,
+    symbolSize: 0.1,
+    symbol: 'circle',
+    label: { show: true, fontSize: 16 },
+    labelLayout: { dx: -20 },
+    encode: { label: 2, tooltip: 1 }
+  }
+  ]
+};
+
+  if (option && typeof option === 'object') {
+    myChart_5.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart_5.resize);
+</script>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+  
+          const target = document.querySelector(this.getAttribute('href'));
+  
+          if (target) {
+              const windowHeight = window.innerHeight;
+              const targetTop = target.getBoundingClientRect().top;
+              const offset = targetTop - 20;
+  
+              window.scrollBy({
+                  top: offset,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+</script>
+</body>
+</html>
