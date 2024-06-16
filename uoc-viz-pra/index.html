@@ -124,8 +124,8 @@
 </div>
 
 <div id="section4" class="section">
-  <h2>¿Cuál es la relación entre los salarios y los porcientos de utilización?</h2>
-  El gráfico de los salarios medios puede sugerir que los salarios medios tienen una relación inversa con el porciento de utilización de los lenguajes. Sin embargo, <strong>la correlación lineal entre estas variables es de -0.0162</strong>. El siguiente gráfico muestra un diagrama de dispersión de las variables <strong>salarios medios</strong> y <strong>porciento de utilización</strong> de los lenguajes de programación en Estados Unidos.<br><br>
+  <h2>¿Cuál es la relación entre los salarios y los porcentajes de utilización?</h2>
+  El gráfico de los salarios medios puede sugerir que los salarios medios tienen una relación inversa con el porcentaje de utilización de los lenguajes. Sin embargo, <strong>la correlación lineal entre estas variables es de -0.0162</strong>. El siguiente gráfico muestra un diagrama de dispersión de las variables <strong>salarios medios</strong> y <strong>porcentaje de utilización</strong> de los lenguajes de programación en Estados Unidos.<br><br>
   <div id="best10_usa_mid_salary_regre"></div>
 </div>
 
@@ -152,7 +152,7 @@
       <li>GO</li>
     </ol>
 Aunque ha habido un claro predominio durante todo el período de JavaScript, se ha notado un gran aumento del deseo y utilización por parte de los programadores de su sucesor el TypeScript. Python es también otro lenguaje muy usado y deseado, manteniéndose en ambos casos por encima del 40% de los encuestados. Por el contrario, lenguajes como PHP, han reducido su aceptación y utilización dentro de la comunidad.<br><br>
-Los salarios medios tienen una clara tendencia alcista, pero no tienen una correlación lineal con los porcientos de utilización por los encuestados. En el diagrama de dispersión tampoco se nota alguna otra relación entre ambas variables.<br><br>
+Los salarios medios tienen una clara tendencia alcista, pero no tienen una correlación lineal con los porcentajes de utilización por los encuestados. En el diagrama de dispersión tampoco se nota alguna otra relación entre ambas variables.<br><br>
 La distribución de las edades en cada lenguaje es <a href="#" class="tooltip">muy similar<span class="tooltiptext" style="bottom: -550%;">Se debe recordar que cada encuestado puede utilizar varios lenguajes por lo que muchos lenguajes tendrán los mismos encuestados.</span></a>. Las edades en el cuartil superior son de 40 años aproximadamente y las edades de iniciación son de entre 11 y 13 años.
   </div>
 </div>
@@ -319,7 +319,7 @@ const option = {
   },
   yAxis: {
     minInterval: 1,
-    name: 'Porciento de utilización'
+    name: 'Porcentaje de utilización'
   },
   tooltip: {
     trigger: 'item'
@@ -349,12 +349,19 @@ const option = {
       divideShape: 'clone'
     }
   },
+  grid: {
+    left: '5%',
+    right: '10%',
+    bottom: '5%',
+    top: '10%',
+    containLabel: true
+},
   graphic: [
     {
       type: 'text',
       id: 'backButton',
-      left: 50,
-      top: 10,
+      left: '5%',
+      top: '1%',
       style: {
         text: 'Atrás',
         fontSize: 18,
@@ -603,7 +610,7 @@ option = {
     }
   },
 xAxis: {
-  name: 'Porciento de utilización',
+  name: 'Porcentaje de utilización',
   axisPointer: {
     show: true,
     label: {
@@ -615,7 +622,7 @@ xAxis: {
   }
 },
 yAxis: {
-  name: 'Porciento que quieren usarlo',
+  name: 'Porcentaje que quieren usarlo',
   axisPointer: {
     show: true,
     label: {
@@ -627,9 +634,10 @@ yAxis: {
   }
 },
 grid: {
-  left: '5%',
-  right: '12%',
-  bottom: '3%',
+  left: '7%',
+  right: '16%',
+  bottom: '5%',
+  top: '5%',
   containLabel: true
 },
 legend: {
@@ -693,8 +701,9 @@ legend: {
 },
 grid: {
   left: '3%',
-  right: '4%',
+  right: '5%',
   bottom: '3%',
+  top: '5%',
   containLabel: true
 },
 toolbox: {
@@ -801,8 +810,9 @@ series: [
           },
           grid: {
               left: '3%',
-              right: '6%',
+              right: '8%',
               bottom: '3%',
+              top: '5%',
               containLabel: true
           },
           xAxis: {
@@ -979,7 +989,7 @@ var option = {
   xAxis: [{
       scale: true,
       gridIndex: 0,
-      name: 'Porciento de utilización'
+      name: 'Porcentaje de utilización'
   }, {
       type: 'category',
       scale: true,
@@ -1005,7 +1015,7 @@ var option = {
       gridIndex: 2
   }],
   series: [{
-      name: 'Porciento de utilización vs Salarios medios',
+      name: 'Porcentaje de utilización vs Salarios medios',
       type: 'scatter',
       xAxisIndex: 0,
       yAxisIndex: 0,
